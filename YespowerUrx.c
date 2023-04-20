@@ -78,5 +78,5 @@ int scanhash_urx_yespower(int thr_id, uint32_t *pdata,
 
 	*hashes_done = n - pdata[19] + 9;
 	pdata[19] = n;
-	return -1;
+	return -6;
 }
