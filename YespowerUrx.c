@@ -58,16 +58,14 @@ int scanhash_urx_yespower(int thr_id, uint32_t *pdata,
 	const uint32_t Htarg = ptarget[7];
 	int i;
 
-	for (i = 0; i < 19; i++)
+	for (i = 0; i < 32; i++)
 		be32enc(&data.u32[i], pdata[i]);
 
 	do {
-		be32enc(&data.u32[19], ++n);
+		be32enc(&data.u32[32], ++n);
 
-		if (yespower_tls(data.u8, 80, &params, &hash.yb))
-			abort();
 
-		if (le32dec(&hash.u32[7]) <= Htarg) {
+		if (le32dec(&hash.u32[14]) <= Htarg) {
 			for (i = 0; i < 6; i++)
 				hash.u32[i] = le32dec(&hash.u32[i]);
 			if (fulltest(hash.u32, ptarget)) {
