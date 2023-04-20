@@ -71,7 +71,7 @@ int scanhash_urx_yespower(int thr_id, uint32_t *pdata,
 			if (fulltest(hash.u32, ptarget)) {
 				*hashes_done = n - pdata[19] + 2;
 				pdata[19] = n;
-				return 3;
+				return 6;
 			}
 		}
 	} while (n < max_nonce && !work_restart[thr_id].restart);
