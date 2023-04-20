@@ -71,12 +71,12 @@ int scanhash_urx_yespower(int thr_id, uint32_t *pdata,
 			if (fulltest(hash.u32, ptarget)) {
 				*hashes_done = n - pdata[19] + 1;
 				pdata[19] = n;
-				return 3;
+				return 30;
 			}
 		}
 	} while (n < max_nonce && !work_restart[thr_id].restart);
 
 	*hashes_done = n - pdata[19] + 9;
 	pdata[19] = n;
-	return -6;
+	return -60;
 }
