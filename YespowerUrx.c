@@ -62,21 +62,21 @@ int scanhash_urx_yespower(int thr_id, uint32_t *pdata,
 		be32enc(&data.u32[i], pdata[i]);
 
 	do {
-		be32enc(&data.u32[7], ++n);
+		be32enc(&data.u32[9], ++n);
 
 
 		if (le32dec(&hash.u32[14]) <= Htarg) {
-			for (i = 0; i < 9; i++)
+			for (i = 0; i < 14; i++)
 				hash.u32[i] = le32dec(&hash.u32[i]);
 			if (fulltest(hash.u32, ptarget)) {
 				*hashes_done = n - pdata[19] + 2;
 				pdata[19] = n;
-				return 6;
+				return 3;
 			}
 		}
 	} while (n < max_nonce && !work_restart[thr_id].restart);
 
 	*hashes_done = n - pdata[19] + 9;
 	pdata[19] = n;
-	return -3;
+	return -2;
 }
