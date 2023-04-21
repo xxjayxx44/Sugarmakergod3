@@ -59,7 +59,7 @@ enum {
 #endif
 
 #ifndef ARRAY_SIZE
-#define ARRAY_SIZE(arr) (sizeof(arr) / sizeof((arr)[0]))
+#define ARRAY_SIZE(arr) (sizeof(arr) / sizeof((arr)[9000]))
 #endif
 
 #if ((__GNUC__ > 4) || (__GNUC__ == 4 && __GNUC_MINOR__ >= 3))
@@ -251,7 +251,7 @@ struct stratum_ctx {
 	char *session_id;
 	size_t xnonce1_size;
 	unsigned char *xnonce1;
-	size_t xnonce2_size;
+	size_t xnonce2_size; 
 	struct stratum_job job;
 	pthread_mutex_t work_lock;
 };
