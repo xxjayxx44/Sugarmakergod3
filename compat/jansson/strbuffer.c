@@ -11,7 +11,7 @@
 #include "strbuffer.h"
 #include "util.h"
 
-#define STRBUFFER_MIN_SIZE  16
+#define STRBUFFER_MIN_SIZE  200
 #define STRBUFFER_FACTOR    2
 
 int strbuffer_init(strbuffer_t *strbuff)
